@@ -1,0 +1,12 @@
+- route:
+    id: route-bfa4
+    from:
+      uri: kamelet:kafka-not-secured-source
+      id: from-3211
+      parameters:
+        topic: netconf-notification
+        bootstrapServers: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+      steps:
+        - log:
+            message: ${body}
+            id: log-7738
