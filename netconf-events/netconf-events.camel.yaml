@@ -10,3 +10,11 @@
         - log:
             message: ${body}
             id: log-7738
+        - unmarshal:
+            id: unmarshal-6f2c
+            jacksonXml:
+              id: jacksonXml-ba0a
+              prettyPrint: true
+        - log:
+            message: ${body}
+            id: log-2489
