@@ -5,16 +5,17 @@
       id: from-3211
       parameters:
         topic: netconf-notification
-        bootstrapServers: my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+        bootstrapServers: my-cluster-kafka-bootstrap.default.svc.cluster.local:9092
       steps:
         - log:
             message: ${body}
             id: log-7738
-        - unmarshal:
-            id: unmarshal-6f2c
-            jacksonXml:
-              id: jacksonXml-ba0a
-              prettyPrint: true
+        - transform:
+            id: transform-7127
+            expression:
+              xquery:
+                expression: /notification/push-update/subscription-id
+                id: xquery-0b12
         - log:
             message: ${body}
-            id: log-2489
+            id: log-43b7
